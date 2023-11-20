@@ -1,7 +1,6 @@
 import { formatter, calculateInvestmentResults } from "../util/investment";
 
 export const ResultTable = ({ investmentInfo }) => {
-    console.log(investmentInfo)
   const investmentResults = calculateInvestmentResults(investmentInfo);
   return (
     <table id="result">

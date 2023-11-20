@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { UserInput } from "./components/UserInput";
-import { calculateInvestmentResults } from "./util/investment";
 import { ResultTable } from "./components/ResutlTable";
 
 function App() {
@@ -16,6 +15,8 @@ function App() {
       return { ...prevInvestmentInfo, [parameter]: value };
     });
   };
+
+  const isInputValid = investmentInfo.duration > 0
 
   return (
     <div>
@@ -48,7 +49,7 @@ function App() {
         />
         </div>
       </div>
-      <ResultTable investmentInfo={investmentInfo} />
+      {isInputValid ? <ResultTable investmentInfo={investmentInfo} /> : <p className="center">Please input duration greater than zero.</p>}
     </div>
   );
 }
